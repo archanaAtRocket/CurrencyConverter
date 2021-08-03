@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %} Transfer Funds {% endblock %}
+
+{% block heading %}
+Transfer Funds
+{% endblock %}
+
+{% block content %}
+
+    {% if form %}
+<form action="{{url_for('transferfunds')}}" method="POST" style="padding:5px;">
+
+    {{ form.from_user.label }}: <br>
+    {{ form.from_user }}
+<br>
+    {{ form.to_user.label }}: <br>
+    {{ form.to_user }}
+<br>
+     {{ form.amount.label }}: <br>
+    {{ form.amount }}
+
+<br>
+    <br>
+    <div style="float:left; border-style:double;">
+     <button style="background-color:tomato" onclick="location.href='{{ url_for('transfer', from_user = form.from_user, to_user = form.to_user)}}'"> Transfer Now </button>
+    </div>
+</form>
+{% endif %}
+{% endblock %}

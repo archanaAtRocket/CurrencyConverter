@@ -1,0 +1,10 @@
+This is a sample Currency Exchange Application
+
+To create a dockerized env -
+docker build -t docker-flask:latest .
+
+To run -
+docker run --name flaskapp -v "$PWD/app:/app" -p5000:5000 docker-flask:latest
+
+This would launch the app in your browser at :
+http://localhost:5000/

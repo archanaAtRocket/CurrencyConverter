@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}
+Wallet Details
+{% endblock %}
+
+<!-- Replacement for Content -->
+{% block content %}
+<h1>My Wallet</h1>
+  </div>
+    <div style="float:left; margin:10px;">
+        <h3 class="title">Wallet Details</h3>
+        <p><b>Current Balance : &nbsp;</b> {{account.balance}}</p>
+        <p><b>Currency: &nbsp;</b> {{user.currency}}</p>
+        <hr>
+
+
+    <div>
+        <h3 class="title">Currency Exchange</h3>
+      <div>
+
+        {% if form %}
+
+        <form action="{{url_for('exchange_rate')}}" method="GET" style="padding:5px;">
+             <br>
+
+            <!-- From Field -->
+            {{ form.from_currency.label }}: <br>
+            <select name="from_currency" method="GET" action="/">
+            <option value="{{currencies[0]}}" selected>{{currencies[0]}}</option>
+            {% for currency in currencies[1:] %}
+            <option value="{{currency}}">{{currency}}</option>
+            {% endfor %}
+            </select>
+        <br>
+            <!-- To Field -->
+            {{ form.to_currency.label }}: <br>
+           <select name="to_currency" method="GET" action="/">
+            <option value="{{currencies[0]}}" selected>{{currencies[0]}}</option>
+            {% for currency in currencies[1:] %}
+            <option value="{{currency}}">{{currency}}</option>
+            {% endfor %}
+            </select>
+        <br>
+            {{ form.csrf_token }}
+            {{ form.submit }}
+        </form>
+        {% endif %}
+    </div>
+
+        </div>
+    </div>
+{% endblock %}

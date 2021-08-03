@@ -1,0 +1,7 @@
+Flask~=2.0.1
+WTForms~=2.3.3
+MarkupSafe==1.0
+Flask-SQLAlchemy==2.5.1
+Flask-WTF==0.15.1
+requests==2.26.0
+email-validator==1.1.3

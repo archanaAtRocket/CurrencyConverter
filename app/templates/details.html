@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %} User Details {% endblock %}
+
+{% block heading %}
+Welcome {{user.full_name}} !
+{% endblock %}
+
+{% block content %}
+<div style="float:left; border-style:double;">
+        <img src= "{{url_for('static', filename = 1.jpg)}}" height="350" ><br>
+
+    </div>
+    <div style="float:left; margin:10px;">
+        <h1 class="title">Details</h1>
+        <p><b>Email: &nbsp;</b> {{user.email}}</p>
+        <p><b>Currency: &nbsp;</b> {{user.currency}}</p>
+        <hr>
+
+    </div>
+
+    <div>
+        <button style="background-color:tomato" onclick="location.href='{{ url_for('show_wallet', user_id = user.id)}}'"> Show Wallet </button>
+    </div>
+     <div>
+        <button style="background-color:tomato" onclick="location.href='{{ url_for('transferfunds')}}'"> Transfer Funds </button>
+    </div>
+{% endblock %}
+
+
